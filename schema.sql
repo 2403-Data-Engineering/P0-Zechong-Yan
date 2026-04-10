@@ -1,4 +1,3 @@
-
 -- Drop tables in reverse order to avoid foreign key issues
 DROP TABLE IF EXISTS enrollments;
 DROP TABLE IF EXISTS classes;
@@ -44,22 +43,3 @@ CREATE TABLE enrollments (
     FOREIGN KEY (class_id) REFERENCES classes(class_id),
     UNIQUE(student_id, class_id)
 );
-
-"""
--- Dummy Data
-INSERT IGNORE INTO professors (first_name, last_name, department, email) VALUES 
-('Alice', 'Smith', 'Computer Science', 'alice.smith@university.edu'),
-('Bob', 'Johnson', 'Mathematics', 'bob.johnson@university.edu');
-
-INSERT IGNORE INTO students (first_name, last_name, email, major, year) VALUES 
-('Emma', 'Davis', 'emma.davis@student.edu', 'Computer Science', 2),
-('Liam', 'Wilson', 'liam.wilson@student.edu', 'Mathematics', 3);
-
-INSERT IGNORE INTO classes (class_name, professor_id, semester, max_students) VALUES 
-('Introduction to Programming', 1, 'Fall 2026', 25),
-('Calculus I', 2, 'Fall 2026', 30);
-
-INSERT IGNORE INTO enrollments (student_id, class_id) VALUES 
-(1, 1),
-(2, 2);
-"""
